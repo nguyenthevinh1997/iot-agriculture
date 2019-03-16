@@ -12,12 +12,15 @@ export class PostCreateComponent implements OnInit {
   enteredContent = "";
   enteredTitle = "";
 
-  constructor(public postsService: PostsService) {}
+  constructor(postsService: PostsService) {}
   onAddPost(form: NgForm) {
     if (form.invalid) {
       return;
     }
-    this.postsService.addPosts(form.value.title,form.value.content)
+    const post: Post = {
+      title: form.value.title,
+      content: form.value.content
+    };
   }
   ngOnInit() {}
 }
