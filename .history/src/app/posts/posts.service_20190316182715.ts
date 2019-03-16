@@ -14,7 +14,6 @@ export class PostsService {
   addPosts(title: string, content: string) {
     const post = { title: title, content: content };
     this.posts.push(post);
-    console.log(this.posts);
     this.postsUpdated.next([...this.posts]);
   }
 }

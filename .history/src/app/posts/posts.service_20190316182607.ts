@@ -6,6 +6,7 @@ export class PostsService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
   getPosts() {
+      console.log('1');
     return [...this.posts];
   }
   getPostsUpdateListener(){
@@ -14,7 +15,6 @@ export class PostsService {
   addPosts(title: string, content: string) {
     const post = { title: title, content: content };
     this.posts.push(post);
-    console.log(this.posts);
     this.postsUpdated.next([...this.posts]);
   }
 }
