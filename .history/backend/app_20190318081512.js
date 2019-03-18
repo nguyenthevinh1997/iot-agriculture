@@ -20,11 +20,7 @@ app.use("/api/posts", (req, res, next) => {
       content: "This is comming from the server!"
     }
   ];
-  res.status(200).json({
-    message: "Posts fetched successfully",
-    posts: posts
-  });
-  next();
+  res.json();
 });
 
 module.exports = app;

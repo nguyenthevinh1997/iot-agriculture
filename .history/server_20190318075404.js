@@ -1,6 +1,6 @@
 const http = require("http");
 const app = require("./backend/app");
-const debug = require("debug")("node-angular");
+
 const normallizePort = val => {
   var port = parseInt(val, 10);
   if (isNaN(port)) {
@@ -33,14 +33,3 @@ const onError = error => {
       throw error;
   }
 };
-const onListening = () => {
-  const addr = server.address();
-  const blind = typeof addr === "string" ? "pipe" + addr : "port" + port;
-  debug("Listening on " + blind);
-};
-const port = normallizePort(process.env.PORT || 3000);
-app.set("port", port);
-const server = http.createServer(app);
-server.on("error", onError);
-server.on("listening", onListening);
-server.listen(port);
