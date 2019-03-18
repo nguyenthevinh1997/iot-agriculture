@@ -8,10 +8,7 @@ app.use((re, res, next) => {
     "Access-Controll-Allow-Headers",
     "Origin,X-Requested-With,Content-Type,Accept"
   );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST,PATCH,DELETE,OPTIONS"
-  );
+  res.setHeader("Access-Control-Allow-Methods","GET, POST,PATCH,DELETE,OPTIONS")
   next();
 });
 app.use("/api/posts", (req, res, next) => {

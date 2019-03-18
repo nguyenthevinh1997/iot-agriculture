@@ -5,12 +5,8 @@ const app = express();
 app.use((re, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
-    "Access-Controll-Allow-Headers",
+    "Access-Controll-Allow-Header",
     "Origin,X-Requested-With,Content-Type,Accept"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST,PATCH,DELETE,OPTIONS"
   );
   next();
 });
