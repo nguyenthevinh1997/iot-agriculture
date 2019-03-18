@@ -16,14 +16,13 @@ export class PostsService {
       )
       .subscribe(postData => {
         this.posts = postData.posts;
-        this.postsUpdated.next([...this.posts]);
       });
   }
   getPostsUpdateListener() {
     return this.postsUpdated.asObservable();
   }
   addPosts(title: string, content: string) {
-    const post = { id: null, title: title, content: content };
+    const post = { id: "", title: title, content: content };
     this.posts.push(post);
     console.log(this.posts);
     this.postsUpdated.next([...this.posts]);

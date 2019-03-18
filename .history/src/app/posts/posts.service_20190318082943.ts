@@ -16,7 +16,6 @@ export class PostsService {
       )
       .subscribe(postData => {
         this.posts = postData.posts;
-        this.postsUpdated.next([...this.posts]);
       });
   }
   getPostsUpdateListener() {

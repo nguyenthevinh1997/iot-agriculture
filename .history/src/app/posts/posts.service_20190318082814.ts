@@ -14,16 +14,13 @@ export class PostsService {
       .get<{ message: string; posts: Post[] }>(
         "http://localhost:3000/api/posts"
       )
-      .subscribe(postData => {
-        this.posts = postData.posts;
-        this.postsUpdated.next([...this.posts]);
-      });
+      .subscribe(() => {});
   }
   getPostsUpdateListener() {
     return this.postsUpdated.asObservable();
   }
   addPosts(title: string, content: string) {
-    const post = { id: null, title: title, content: content };
+    const post = { title: title, content: content };
     this.posts.push(post);
     console.log(this.posts);
     this.postsUpdated.next([...this.posts]);

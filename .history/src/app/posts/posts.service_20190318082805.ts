@@ -1,4 +1,4 @@
-import { Post } from "./post.model";
+import { Posts } from "./post.model";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
@@ -11,19 +11,16 @@ export class PostsService {
 
   getPosts() {
     this.http
-      .get<{ message: string; posts: Post[] }>(
+      .get<{ message: string; posts: Posts[] }>(
         "http://localhost:3000/api/posts"
       )
-      .subscribe(postData => {
-        this.posts = postData.posts;
-        this.postsUpdated.next([...this.posts]);
-      });
+      .subscribe(() => {});
   }
   getPostsUpdateListener() {
     return this.postsUpdated.asObservable();
   }
   addPosts(title: string, content: string) {
-    const post = { id: null, title: title, content: content };
+    const post = { title: title, content: content };
     this.posts.push(post);
     console.log(this.posts);
     this.postsUpdated.next([...this.posts]);
