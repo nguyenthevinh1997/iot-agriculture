@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use((re, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
-    "Access-Control-Allow-Headers",
+    "Access-Controll-Allow-Headers",
     "Origin,X-Requested-With,Content-Type,Accept"
   );
   res.setHeader(
@@ -20,11 +20,9 @@ app.use((re, res, next) => {
 app.post("/api/posts", (req, res, next) => {
   const post = req.body;
   console.log(post);
-  res.status(201).json({
-    message:'Post added successfully'
-  });
+  res.status(201);
 });
-app.get("/api/posts", (req, res, next) => {
+app.use("/api/posts", (req, res, next) => {
   const posts = [
     {
       id: "dasdklj455jd",
