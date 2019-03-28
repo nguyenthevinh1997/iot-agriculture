@@ -28,7 +28,8 @@ import {
   MatTabsModule,
   MatProgressSpinnerModule,
   MatToolbarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatProgressSpinner
 } from "@angular/material";
 import { HeaderComponent } from "./header/header.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
